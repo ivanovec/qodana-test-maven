@@ -354,7 +354,7 @@
     </dependencies>
 
     <build>
-        <finalName>spreekuur-samen</finalName>
+        <finalName>example-app-v1</finalName>
         <sourceDirectory>src/main/kotlin</sourceDirectory>
         <testSourceDirectory>src/test/kotlin</testSourceDirectory>
         <resources>
