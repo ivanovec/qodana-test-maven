@@ -7,7 +7,7 @@ on:
 
 jobs:
   qodana:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     permissions:
       contents: write
       pull-requests: write
@@ -16,13 +16,14 @@ jobs:
       - name: ⚙ Checkout branch
         uses: actions/checkout@v5
       - name: 'Qodana Scan'
-        uses: JetBrains/qodana-action@v2025.2
+        uses: JetBrains/qodana-action@v2026.1
         with:
           pr-mode: false
           upload-result: true
           args: |
-            --linter,qodana-jvm,
+            --ide,QDJVM,
             --baseline,qodana.sarif.json,
             --coverage-dir,${{ github.workspace }}/target/kover
         env:
           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+          QD_PRODUCT_INTERNAL_FEED: http://localhost:8000
