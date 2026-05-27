@@ -1,0 +1,30 @@
+name: Qodana
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  qodana:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      checks: write
+    steps:
+      - name: ⚙ Checkout branch
+        uses: actions/checkout@v5
+      - name: 'Qodana Scan'
+        uses: JetBrains/qodana-action@v2025.2
+        with:
+          pr-mode: false
+          upload-result: true
+          args: |
+            --linter,qodana-jvm,
+            --within-docker,false,
+            --baseline,qodana.sarif.json,
+            --coverage-dir,${{ github.workspace }}/target/kover
+        env:
+          QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+          QODANA_ENDPOINT: 'https://topicushealthcare.qodana.cloud'
