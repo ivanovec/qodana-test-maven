@@ -21,7 +21,7 @@ jobs:
           pr-mode: false
           upload-result: true
           args: |
-            --linter,qodana-jvm,
+            --linter,jetbrains/qodana-jvm:2025.2.1,
             --within-docker,false,
             --baseline,qodana.sarif.json,
             --coverage-dir,${{ github.workspace }}/target/kover
