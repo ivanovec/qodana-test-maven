@@ -27,4 +27,3 @@ jobs:
             --coverage-dir,${{ github.workspace }}/target/kover
         env:
           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
-          QODANA_ENDPOINT: 'https://topicushealthcare.qodana.cloud'
