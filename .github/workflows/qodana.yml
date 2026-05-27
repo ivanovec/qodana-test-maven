@@ -15,13 +15,6 @@ jobs:
     steps:
       - name: ⚙ Checkout branch
         uses: actions/checkout@v5
-      - name: Cache Maven repository
-        uses: actions/cache@v4
-        with:
-          path: ~/.m2/repository
-          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-          restore-keys: |
-            ${{ runner.os }}-maven-
       - name: 'Qodana Scan'
         uses: JetBrains/qodana-action@v2025.2
         with:
@@ -29,7 +22,6 @@ jobs:
           upload-result: true
           args: |
             --linter,qodana-jvm,
-            --within-docker,false,
             --baseline,qodana.sarif.json,
             --coverage-dir,${{ github.workspace }}/target/kover
         env:
