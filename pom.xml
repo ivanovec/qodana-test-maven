@@ -8,9 +8,9 @@
         <version>3.5.5</version>
         <relativePath/>
     </parent>
-    <groupId>nl.topicuszorg.spreekuur</groupId>
+    <groupId>nl.example.app</groupId>
     <artifactId>samen</artifactId>
-    <name>Spreekuur Samen</name>
+    <name>Example App</name>
     <version>${revision}</version>
 
     <properties>
@@ -144,22 +144,22 @@
             <version>24.20</version>
         </dependency>
         <dependency>
-            <groupId>nl.topicuszorg.spreekuur</groupId>
+            <groupId>nl.example.app</groupId>
             <artifactId>aws-events</artifactId>
             <version>12.2.2</version>
         </dependency>
         <dependency>
-            <groupId>nl.topicuszorg.spreekuur</groupId>
+            <groupId>nl.example.app</groupId>
             <artifactId>medicom-client-builder</artifactId>
             <version>5.2.1</version>
         </dependency>
         <dependency>
-            <groupId>nl.topicuszorg.spreekuur</groupId>
+            <groupId>nl.example.app</groupId>
             <artifactId>promedico-client</artifactId>
             <version>7.1.1</version>
         </dependency>
         <dependency>
-            <groupId>nl.topicuszorg.spreekuur</groupId>
+            <groupId>nl.example.app</groupId>
             <artifactId>spreekuur-datadog</artifactId>
             <version>1.2.1</version>
         </dependency>
@@ -347,7 +347,7 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>nl.topicuszorg.spreekuur</groupId>
+            <groupId>nl.example.app</groupId>
             <artifactId>spreekuur-models</artifactId>
             <version>3.3.1</version>
         </dependency>
@@ -412,7 +412,7 @@
                 <configuration>
                     <instrumentation>
                         <ignores>
-                            <ignore>nl.topicuszorg.spreekuur.Application</ignore>
+                            <ignore>nl.example.app.Application</ignore>
                         </ignores>
                     </instrumentation>
                     <formats>
@@ -465,7 +465,7 @@
                         <!-- Excludes have priority over includes. -->
                         <excludes>
                             <!-- Exclude StreamWrapper because this class contains static code which is not suitable for unit testing -->
-                            <classes>nl.topicuszorg.spreekuur.chat.infrastructure.stream.StreamWrapper</classes>
+                            <classes>nl.example.app.chat.infrastructure.stream.StreamWrapper</classes>
                         </excludes>
                     </filters>
                     <rules>
