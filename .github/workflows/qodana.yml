@@ -16,14 +16,14 @@ jobs:
       - name: ⚙ Checkout branch
         uses: actions/checkout@v5
       - name: 'Qodana Scan'
-        uses: JetBrains/qodana-action@v2026.1
+        uses: JetBrains/qodana-action@v2025.2
         with:
           pr-mode: false
           upload-result: true
           args: |
-            --ide,QDJVM,
+            --linter,qodana-jvm,
+            --within-docker,false,
             --baseline,qodana.sarif.json,
             --coverage-dir,${{ github.workspace }}/target/kover
         env:
           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
-          QD_PRODUCT_INTERNAL_FEED: http://localhost:8000
